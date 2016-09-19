@@ -1,5 +1,5 @@
  Bacteria bob;   
- int x = 300;
+ int x = 0;
  int y = 300;
 
  void setup()   
@@ -10,10 +10,12 @@
  void draw()   
  {  
  	background(0); 
- 	bob = new Bacteria(x,y);
- 	bob.show(); 
- 	x = x +(int)(Math.random()*10-5);
- 	y = y +(int)(Math.random()*10-5);
+ 	for (x = 0; x < 600; x += 20)
+ 	{	
+ 		bob = new Bacteria(x,y);
+ 		bob.show(); 
+ 		bob.move();
+ 	}
  }  
  
  class Bacteria    
@@ -28,7 +30,8 @@
  	
  	void move()
  	{
- 		
+ 		x = x +(int)(Math.random()*3-1.5);
+ 		y = y +(int)(Math.random()*3-1.5);
  	}
 
  	void show()
