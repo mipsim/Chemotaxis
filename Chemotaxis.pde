@@ -1,42 +1,45 @@
- Bacteria bob;   
- int x = 0;
+ Bacteria [] colony = new Bacteria[100];
+ int x = 300;
  int y = 300;
 
  void setup()   
  {     
 	size(600,600);
+	for (int i=0; i<colony.length;i++)
+	{
+		colony[i] = new Bacteria(i);
+	}
  }   
  
  void draw()   
  {  
- 	background(0); 
- 	for (x = 0; x < 600; x += 20)
- 	{	
- 		bob = new Bacteria(x,y);
- 		bob.show(); 
- 		bob.move();
- 	}
+ 	background(0,0,50); 
+ 	for (int i=0; i<colony.length;i++)
+	{
+		colony[i].move();
+		colony[i].show();
+	}
  }  
  
  class Bacteria    
  {     
  	int bacteriaX, bacteriaY, bacteriaColor;
- 	Bacteria (int x, int y)
+ 	Bacteria (int arg)
  	{
  		bacteriaX = x;
  		bacteriaY = y;
- 		bacteriaColor = (int)(Math.random()*226)+30;
+ 		bacteriaColor = (int)(Math.random()*131)+75;
  	}   
  	
  	void move()
  	{
- 		x = x +(int)(Math.random()*3-1.5);
- 		y = y +(int)(Math.random()*3-1.5);
+ 		bacteriaX = bacteriaX + (int)(Math.random()*5-2.5);
+ 		bacteriaY = bacteriaY + (int)(Math.random()*5-2.5);
  	}
 
  	void show()
  	{
- 		fill(0,bacteriaColor,0);
+ 		fill(200,bacteriaColor,0);
  		ellipse(bacteriaX, bacteriaY, 10, 10);
  	}
  }    
