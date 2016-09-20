@@ -19,6 +19,10 @@
 		colony[i].move();
 		colony[i].show();
 	}
+	fill(255);
+	ellipse(mouseX,mouseY,25,25);
+
+
  }  
  
  class Bacteria    
@@ -28,18 +32,35 @@
  	{
  		bacteriaX = x;
  		bacteriaY = y;
- 		bacteriaColor = (int)(Math.random()*131)+75;
+ 		bacteriaColor = (int)(Math.random()*126)+100;
  	}   
  	
  	void move()
  	{
- 		bacteriaX = bacteriaX + (int)(Math.random()*5-2.5);
- 		bacteriaY = bacteriaY + (int)(Math.random()*5-2.5);
+ 		if (bacteriaX < 0)
+		{
+			bacteriaX = 600;
+		}
+		else if (bacteriaX > 600)
+		{
+			bacteriaX = 0;
+		}
+		if (bacteriaY < 0)
+		{
+			bacteriaY = 600;
+		}
+		else if (bacteriaY > 600)
+		{
+			bacteriaY = 0;
+		}
+ 		bacteriaX = bacteriaX + (int)(Math.random()*10-5);
+ 		bacteriaY = bacteriaY + (int)(Math.random()*10-5);
  	}
 
  	void show()
  	{
- 		fill(200,bacteriaColor,0);
+ 		noStroke();
+ 		fill(100,bacteriaColor,0);
  		ellipse(bacteriaX, bacteriaY, 10, 10);
  	}
  }    
