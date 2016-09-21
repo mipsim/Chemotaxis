@@ -1,4 +1,4 @@
- Bacteria [] colony = new Bacteria[100];
+ Bacteria [] colony = new Bacteria[1000];
  int x = 300;
  int y = 300;
 
